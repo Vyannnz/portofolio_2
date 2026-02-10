@@ -1,184 +1,194 @@
-/* 1. RESET & FONT - Menyiapkan kanvas bersih */
+/* 1. VARIABEL WARNA - Memudahkan kita mengganti tema warna di satu tempat */
+:root {
+    --primary-navy: #0b132b;    /* Biru tua gelap khas kostum Sasuke */
+    --accent-blue: #1c2541;     /* Biru navy menengah */
+    --sasuke-purple: #6a5acd;   /* Ungu Susanoo */
+    --white: #ffffff;           /* Putih bersih */
+    --ice-blue: #e0f2fe;        /* Biru sangat muda untuk kontras */
+}
+
+/* 2. RESET & SETUP DASAR */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ukuran elemen tetap konsisten meskipun ada padding */
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box; /* Menghitung padding & border dalam total lebar elemen */
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Mengatur scroll agar halus saat klik menu navigasi */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
 }
 
 body {
-    background-color: #ffffff; /* Warna dasar putih bersih */
-    color: #2c3e50; /* Warna teks abu-abu gelap agar nyaman dibaca */
-    overflow-x: hidden; /* Mencegah scroll ke samping yang tidak diinginkan */
+    background-color: var(--white);
+    color: var(--primary-navy);
+    line-height: 1.6;
 }
 
-/* 2. NAVIGASI - Rapi dan Modern */
+/* 3. NAVIGASI - Rapi & Stay di Atas */
 header {
-    background: rgba(255, 255, 255, 0.9); /* Putih transparan agar terlihat elegan */
-    backdrop-filter: blur(10px); /* Efek blur kaca di belakang nav */
-    padding: 15px 10%;
-    position: fixed; /* Navigasi nempel di atas layar */
+    background-color: rgba(11, 19, 43, 0.95); /* Biru tua dengan sedikit transparan */
+    padding: 1rem 10%;
+    position: fixed; /* Menempel di atas saat di-scroll */
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Bayangan halus */
-    border-bottom: 2px solid #caf0f8; /* Garis bawah biru muda */
+    border-bottom: 3px solid var(--sasuke-purple); /* Ukuran garis bawah ungu */
 }
 
 nav {
     display: flex;
-    justify-content: space-between; /* Logo kiri, Menu kanan */
+    justify-content: space-between; /* Logo di kiri, Menu di kanan */
     align-items: center;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: #4a90e2; /* Biru muda Sasuke */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 2px;
 }
 
 .logo span {
-    color: #6a5acd; /* Aksen ungu (warna jubah/susanoo Sasuke) */
+    color: var(--sasuke-purple); /* Memberikan warna ungu pada teks 'Porto' */
 }
 
 nav ul {
     display: flex;
-    list-style: none; /* Hilangkan titik bullet */
+    list-style: none; /* Menghilangkan titik-titik pada list */
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    transition: 0.3s; /* Efek transisi halus saat dihover */
+    color: var(--white);
+    font-weight: 500;
+    transition: 0.3s; /* Animasi halus saat hover */
 }
 
 nav ul li a:hover {
-    color: #4a90e2; /* Berubah jadi biru saat disentuh kursor */
+    color: var(--sasuke-purple);
+    text-shadow: 0 0 8px var(--sasuke-purple); /* Efek cahaya (glow) saat disentuh */
 }
 
-/* 3. HERO SECTION - Tema Sasuke Chidori */
+/* 4. HERO SECTION - Tema Aura Sasuke */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    background: radial-gradient(circle at top right, #e0f2fe, #ffffff); /* Gradasi biru pucat ke putih */
+    /* Ukuran/Motif: Menggunakan gradasi linear untuk kesan aura */
+    background: linear-gradient(135deg, var(--primary-navy) 0%, #1c2541 100%);
+    color: var(--white);
     padding-top: 80px;
 }
 
 .hero-content h1 {
     font-size: 4rem;
-    color: #1a365d;
     margin-bottom: 10px;
-    border-left: 8px solid #6a5acd; /* Garis vertikal ungu dekoratif */
-    padding-left: 20px;
+    text-transform: uppercase;
 }
 
 .btn-hero {
     display: inline-block;
-    padding: 12px 35px;
-    background: #4a90e2;
-    color: white;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--sasuke-purple);
+    color: var(--white);
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 25px;
+    border-radius: 4px;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4); /* Efek glow biru chidori */
     transition: 0.3s;
+    box-shadow: 5px 5px 0px var(--white); /* "Ukuran" dekorasi kotak gaya retro/anime */
 }
 
 .btn-hero:hover {
-    background: #357abd;
-    transform: translateY(-3px); /* Tombol sedikit naik saat dihover */
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px var(--white);
 }
 
 .hero-logo img {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%; /* Foto bulat sempurna */
+    width: 320px;
+    height: 320px;
     object-fit: cover;
-    border: 10px solid #ffffff;
-    outline: 2px solid #4a90e2; /* Double border bertema modern */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 5px solid var(--white);
+    /* Ukuran: Frame foto dengan bayangan ungu Susanoo */
+    box-shadow: 15px 15px 0px var(--sasuke-purple); 
 }
 
-/* 4. ABOUT SECTION */
+/* 5. ABOUT SECTION */
 .container {
     padding: 100px 10%;
 }
 
 .about {
+    background-color: var(--ice-blue);
     text-align: center;
-    background: #f8fafc;
 }
 
-.about-content {
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-navy);
+}
+
+.about-content p {
     max-width: 800px;
-    margin: 0 auto;
-    font-size: 18px;
-    line-height: 1.8;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
 }
 
-/* 5. PROYEK GRID - Sejajar dan Bersih */
+/* 6. PROYEK GRID - Sejajar & Modern */
+.proyek {
+    background-color: var(--white);
+}
+
 .proyek-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid otomatis menyesuaikan layar */
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif otomatis */
+    gap: 30px;
 }
 
 .proyek-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
+    background: var(--white);
     text-decoration: none;
     color: inherit;
-    border: 1px solid #e2e8f0;
-    transition: 0.4s ease;
+    border: 2px solid var(--primary-navy); /* Garis tepi tegas */
+    transition: 0.4s;
+    overflow: hidden;
 }
 
 .proyek-card:hover {
-    transform: scale(1.03); /* Membesar sedikit */
-    box-shadow: 0 10px 30px rgba(106, 90, 205, 0.15); /* Bayangan ungu halus (Susanoo vibes) */
-    border-color: #6a5acd;
+    transform: translateY(-10px);
+    border-color: var(--sasuke-purple);
+    box-shadow: 10px 10px 0px var(--sasuke-purple); /* Ukuran bayangan saat hover */
 }
 
 .proyek-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    filter: grayscale(40%); /* Sedikit hitam putih agar senada */
+    transition: 0.4s;
+}
+
+.proyek-card:hover img {
+    filter: grayscale(0%); /* Warna muncul penuh saat di-hover */
 }
 
 .proyek-info {
     padding: 20px;
 }
 
-.proyek-info h3 {
-    color: #1a365d;
-    margin-bottom: 10px;
-}
-
-/* 6. MEDSOS SECTION */
-.medsos {
-    text-align: center;
-}
-
+/* 7. MEDIA SOSIAL - Ikon Sharingan Vibes */
 .medsos-list {
     display: flex;
-    justify-content: center; /* Ikon di tengah */
-    gap: 50px; /* Jarak antar ikon medsos */
+    justify-content: center;
+    gap: 40px;
     margin-top: 30px;
 }
 
@@ -187,27 +197,24 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #4a5568;
+    color: var(--primary-navy);
     transition: 0.3s;
 }
 
 .medsos-item img {
     width: 50px;
-    filter: grayscale(100%); /* Awalnya hitam putih */
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .medsos-item:hover img {
-    filter: grayscale(0%); /* Berwarna saat dihover */
-    transform: rotate(360deg); /* Efek mutar seperti Sharingan */
+    transform: rotate(360deg); /* Berputar seperti Sharingan yang aktif */
 }
 
-/* 7. FOOTER */
+/* 8. FOOTER */
 footer {
-    background: #1a202c; /* Hitam arang khas rambut Sasuke */
-    color: white;
+    background-color: var(--primary-navy);
+    color: var(--white);
     text-align: center;
-    padding: 40px 0;
-    margin-top: 50px;
-    border-top: 4px solid #6a5acd; /* Aksen ungu di bagian atas footer */
+    padding: 50px;
+    border-top: 5px solid var(--sasuke-purple);
 }
