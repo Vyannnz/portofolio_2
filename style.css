@@ -218,3 +218,10 @@ footer {
     padding: 50px;
     border-top: 5px solid var(--sasuke-purple);
 }
+body {
+    background-image: url('sasuke.avif');
+    background-size: cover;          /* Mengisi layar penuh */
+    background-repeat: no-repeat;    /* Gambar tidak diulang */
+    background-position: center;     /* Gambar di tengah */
+    background-attachment: fixed;    /* Gambar tetap saat di-scroll */
+}
