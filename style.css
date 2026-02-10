@@ -1,167 +1,185 @@
-/* 1. RESET & DASAR - Menghilangkan jarak bawaan browser agar layout presisi */
+/* 1. RESET & FONT - Menyiapkan kanvas bersih */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Agar padding tidak merusak ukuran elemen */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box; /* Ukuran elemen tetap konsisten meskipun ada padding */
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Mengatur scroll halus saat klik menu navigasi */
+/* Mengatur scroll agar halus saat klik menu navigasi */
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #f0f8ff; /* Warna background utama (Alice Blue) */
-    color: #333;
-    line-height: 1.6;
+    background-color: #ffffff; /* Warna dasar putih bersih */
+    color: #2c3e50; /* Warna teks abu-abu gelap agar nyaman dibaca */
+    overflow-x: hidden; /* Mencegah scroll ke samping yang tidak diinginkan */
 }
 
-/* 2. NAVIGASI - Membuat menu tetap di atas */
+/* 2. NAVIGASI - Rapi dan Modern */
 header {
-    background-color: rgba(255, 255, 255, 0.95); /* Putih transparan */
-    padding: 1rem 10%;
-    position: fixed; /* Menempel di atas saat di-scroll */
+    background: rgba(255, 255, 255, 0.9); /* Putih transparan agar terlihat elegan */
+    backdrop-filter: blur(10px); /* Efek blur kaca di belakang nav */
+    padding: 15px 10%;
+    position: fixed; /* Navigasi nempel di atas layar */
     width: 100%;
     top: 0;
-    z-index: 1000; /* Agar tidak tertutup elemen lain */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan tipis */
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+    border-bottom: 2px solid #caf0f8; /* Garis bawah biru muda */
 }
 
 nav {
     display: flex;
-    justify-content: space-between; /* Logo di kiri, Menu di kanan */
+    justify-content: space-between; /* Logo kiri, Menu kanan */
     align-items: center;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0077b6; /* Biru gelap untuk kontras */
+    font-size: 24px;
+    font-weight: 800;
+    color: #4a90e2; /* Biru muda Sasuke */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .logo span {
-    color: #48cae4; /* Biru ice untuk variasi */
+    color: #6a5acd; /* Aksen ungu (warna jubah/susanoo Sasuke) */
 }
 
 nav ul {
     display: flex;
-    list-style: none;
+    list-style: none; /* Hilangkan titik bullet */
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    transition: 0.3s; /* Efek halus saat di-hover */
+    font-weight: 600;
+    transition: 0.3s; /* Efek transisi halus saat dihover */
 }
 
 nav ul li a:hover {
-    color: #00b4d8; /* Berubah warna saat kursor menempel */
+    color: #4a90e2; /* Berubah jadi biru saat disentuh kursor */
 }
 
-/* 3. HERO SECTION - Bagian pembuka */
+/* 3. HERO SECTION - Tema Sasuke Chidori */
 .hero {
-    height: 100vh; /* Memenuhi tinggi layar */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    background: linear-gradient(135deg, #caf0f8 0%, #ffffff 100%); /* Motif gradasi Biru Ice */
+    background: radial-gradient(circle at top right, #e0f2fe, #ffffff); /* Gradasi biru pucat ke putih */
     padding-top: 80px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    color: #03045e;
-    line-height: 1.2;
+    font-size: 4rem;
+    color: #1a365d;
+    margin-bottom: 10px;
+    border-left: 8px solid #6a5acd; /* Garis vertikal ungu dekoratif */
+    padding-left: 20px;
 }
 
 .btn-hero {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: #00b4d8;
+    padding: 12px 35px;
+    background: #4a90e2;
     color: white;
     text-decoration: none;
-    border-radius: 50px; /* Membuat tombol lonjong */
+    border-radius: 5px;
+    margin-top: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4); /* Efek glow biru chidori */
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
 }
 
 .btn-hero:hover {
-    background-color: #0077b6;
-    transform: translateY(-3px); /* Efek melompat kecil */
+    background: #357abd;
+    transform: translateY(-3px); /* Tombol sedikit naik saat dihover */
 }
 
 .hero-logo img {
-    width: 300px;
-    height: 300px;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Bentuk unik (blob) */
+    width: 350px;
+    height: 350px;
+    border-radius: 50%; /* Foto bulat sempurna */
     object-fit: cover;
-    border: 8px solid white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 10px solid #ffffff;
+    outline: 2px solid #4a90e2; /* Double border bertema modern */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* 4. CONTAINER UMUM - Jarak antar section */
+/* 4. ABOUT SECTION */
 .container {
-    padding: 80px 10%;
+    padding: 100px 10%;
 }
 
-h2 {
+.about {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #03045e;
+    background: #f8fafc;
 }
 
-/* 5. PROYEK GRID - Mengatur kartu agar sejajar rapi */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* 5. PROYEK GRID - Sejajar dan Bersih */
 .proyek-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif otomatis */
-    gap: 20px; /* Jarak antar kartu */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid otomatis menyesuaikan layar */
+    gap: 25px;
 }
 
 .proyek-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: 0.4s;
-    border: 1px solid #e0f2f1;
+    border: 1px solid #e2e8f0;
+    transition: 0.4s ease;
 }
 
 .proyek-card:hover {
-    transform: scale(1.05); /* Membesar sedikit */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: scale(1.03); /* Membesar sedikit */
+    box-shadow: 0 10px 30px rgba(106, 90, 205, 0.15); /* Bayangan ungu halus (Susanoo vibes) */
+    border-color: #6a5acd;
 }
 
 .proyek-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
 .proyek-info {
     padding: 20px;
-    text-align: center;
 }
 
 .proyek-info h3 {
-    color: #0077b6;
-    margin-bottom: 5px;
+    color: #1a365d;
+    margin-bottom: 10px;
 }
 
-/* 6. MEDIA SOSIAL - Mengatur icon */
+/* 6. MEDSOS SECTION */
+.medsos {
+    text-align: center;
+}
+
 .medsos-list {
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    justify-content: center; /* Ikon di tengah */
+    gap: 50px; /* Jarak antar ikon medsos */
+    margin-top: 30px;
 }
 
 .medsos-item {
@@ -169,24 +187,27 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #333;
+    color: #4a5568;
     transition: 0.3s;
 }
 
 .medsos-item img {
-    width: 45px;
-    margin-bottom: 10px;
+    width: 50px;
+    filter: grayscale(100%); /* Awalnya hitam putih */
+    transition: 0.3s;
 }
 
-.medsos-item:hover {
-    transform: translateY(-5px);
-    color: #00b4d8;
+.medsos-item:hover img {
+    filter: grayscale(0%); /* Berwarna saat dihover */
+    transform: rotate(360deg); /* Efek mutar seperti Sharingan */
 }
 
 /* 7. FOOTER */
 footer {
-    text-align: center;
-    padding: 30px;
-    background-color: #03045e;
+    background: #1a202c; /* Hitam arang khas rambut Sasuke */
     color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 4px solid #6a5acd; /* Aksen ungu di bagian atas footer */
 }
